@@ -1,8 +1,4 @@
-import 'dart:async';
-
-import 'package:get_it/get_it.dart';
-import 'package:kiwi/kiwi.dart';
-import 'package:typetest/abstract/base_repository.dart';
+part of '../db_lib.dart';
 
 /// An optional abstract interface to be implemented in each flutter app
 /// or package. It will be used to automatically register the repositories with
@@ -66,7 +62,8 @@ abstract class BaseRepositoryRegistry {
       T repository) async {
         
       print('kiwi: Inferred type T is: ${T}');
-        print('kiwi: Repository: ${repository.runtimeType} setup');
+        print('kiwi: Repository: runtimeType ${repository.runtimeType}, '
+              'name: ${repository.name} setup');
     // KiwiContainer().registerInstance(repository);
     // print('kiwi: Repository: ${repository.runtimeType} was registered'
     //     ' and initialized. name: ${(r as BaseRepository).name} \n\t'
@@ -82,9 +79,9 @@ class CustomDatabaseRegistryPair<
     TRepo extends BaseRepository> {
   /// Creates an instance of [CustomDatabaseRegistryPair].
   CustomDatabaseRegistryPair(this.repository, this.adapter) {
-    print('CustomDatabaseRegistryPair ctor \n'
-          'Type inferred: $TRepo \n'
-          'RuntimeType: ${repository.runtimeType}');
+    // print('CustomDatabaseRegistryPair ctor \n'
+    //       'Type inferred: $TRepo \n'
+    //       'RuntimeType: ${repository.runtimeType}');
   }
 
   /// Get the [TRepo] repository of this [CustomDatabaseRegistryPair] instance.

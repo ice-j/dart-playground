@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:typetest/abstract/base_repository.dart';
-import 'package:typetest/abstract/base_repository_registry.dart';
+import 'package:db_lib/db_lib.dart';
 import 'package:typetest/accounts_repository.dart';
 import 'package:typetest/settings_repository.dart';
 

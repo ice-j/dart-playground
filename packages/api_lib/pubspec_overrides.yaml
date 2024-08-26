@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: db_lib
+dependency_overrides:
+  db_lib:
+    path: ../db_lib

@@ -1,4 +1,4 @@
-import 'package:db_lib/db_lib.dart';
+part of 'log_lib.dart';
 
 class SettingsRepository extends BaseRepository {
   SettingsRepository({required super.name});

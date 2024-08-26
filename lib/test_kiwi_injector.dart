@@ -1,5 +1,4 @@
 import 'package:kiwi/kiwi.dart';
-import 'package:typetest/abstract/base_repository.dart';
 import 'package:typetest/accounts_repository.dart';
 import 'package:typetest/settings_repository.dart';
 import 'package:typetest/test_registry.dart';
