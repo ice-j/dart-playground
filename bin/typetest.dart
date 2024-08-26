@@ -8,8 +8,12 @@ import 'package:typetest/test_registry.dart';
 import 'package:typetest/typetest.dart' as typetest;
 
 Future<void> main(List<String> arguments) async {
-  configureDependencies();
-  await main_get_it();
+  if (arguments.isNotEmpty && arguments[0].toLowerCase() == "getit") {
+    configureDependencies();
+    await main_get_it();
+  } else {
+    await main_kiwi();
+  }
 }
 
 Future<void> main_kiwi() async {
