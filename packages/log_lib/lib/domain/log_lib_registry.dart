@@ -1,5 +1,6 @@
-part of 'log_lib.dart';
+part of '../log_lib.dart';
 
+@singleton
 class LogLibRegistry extends BaseRepositoryRegistry {
   @override
   FutureOr<List<CustomDatabaseRegistryPair<BaseRepository>>> setupFactory() {

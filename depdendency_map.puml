@@ -1,0 +1,24 @@
+digraph packages {
+  size="10"; ratio=fill;
+  api_lib [shape="box"; color="#5e628e"];
+  db_lib [shape="box"; color="#df5c73"];
+  log_lib [shape="box"; color="#0a478a"];
+  typetest [shape="box"; color="#cd5a0e"];
+  api_lib -> db_lib [style="filled"; color="#df5c73"];
+  log_lib -> db_lib [style="filled"; color="#df5c73"];
+  typetest -> db_lib [style="filled"; color="#df5c73"];
+  typetest -> log_lib [style="filled"; color="#0a478a"];
+  typetest -> api_lib [style="filled"; color="#5e628e"];
+  subgraph "cluster packages" {
+    label="packages";
+    color="#6b4949";
+    api_lib;
+    db_lib;
+    log_lib;
+  }
+  subgraph "cluster ." {
+    label=".";
+    color="#d9516d";
+    typetest;
+  }
+}
