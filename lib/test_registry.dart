@@ -8,8 +8,8 @@ class TestRegistry extends BaseRepositoryRegistry {
   @override
   FutureOr<List<CustomDatabaseRegistryPair<BaseRepository>>> setupFactory() {
     return [
-      CustomDatabaseRegistryPair(AccountsRepository(name: 'accounts'), 'accounts'),
-      CustomDatabaseRegistryPair(SettingsRepository(name: 'settings'), 'settings'),
+      CustomDatabaseRegistryPair(AccountsRepository(name: 'main.accounts'), 'accounts'),
+      CustomDatabaseRegistryPair(SettingsRepository(name: 'main.settings'), 'settings'),
     ];
   }
 }

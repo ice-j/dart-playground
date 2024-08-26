@@ -17,13 +17,13 @@ Future<void> main(List<String> arguments) async {
 }
 
 Future<void> main_kiwi() async {
+  // Initialize kiwi
+  final kiwi = KiwiContainer();
+
   // Configure injectors
   getTestKiwiInjector().configure();
   api_lib.getApiLibKiwiInjector().configure();
   log_lib.getLogLibKiwiInjector().configure();
-
-  // Initialize kiwi
-  final kiwi = KiwiContainer();
 
   // Register types
 
@@ -37,30 +37,30 @@ Future<void> main_kiwi() async {
   await logRegistry.registerWithKiwi();
 
   // Resolve repositories from running package
-  var getit_main_AccountsRepo = kiwi.resolve<AccountsRepository>();
+  var kiwi_main_AccountsRepo = kiwi.resolve<AccountsRepository>();
   print(
-      'Name: ${getit_main_AccountsRepo.name}, runtimeType: ${getit_main_AccountsRepo.runtimeType}');
-  var getit_main_SettingsRepo = kiwi.resolve<SettingsRepository>();
+      'Name: ${kiwi_main_AccountsRepo.name}, runtimeType: ${kiwi_main_AccountsRepo.runtimeType}');
+  var kiwi_main_SettingsRepo = kiwi.resolve<SettingsRepository>();
   print(
-      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_main_SettingsRepo.runtimeType}');
+      'Name: ${kiwi_main_SettingsRepo.name}, runtimeType: ${kiwi_main_SettingsRepo.runtimeType}');
   print('========= LOG LIB ==========');
 
   // Resolve repositories from log_lib
-  var getit_LogLib_AccountsRepo = kiwi.resolve<log_lib.AccountsRepository>();
+  var kiwi_LogLib_AccountsRepo = kiwi.resolve<log_lib.AccountsRepository>();
   print(
-      'Name: ${getit_main_AccountsRepo.name}, runtimeType: ${getit_LogLib_AccountsRepo.runtimeType}');
-  var getit_LogLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
+      'Name: ${kiwi_LogLib_AccountsRepo.name}, runtimeType: ${kiwi_LogLib_AccountsRepo.runtimeType}');
+  var kiwi_LogLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
   print(
-      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_LogLib_SettingsRepo.runtimeType}');
+      'Name: ${kiwi_LogLib_SettingsRepo.name}, runtimeType: ${kiwi_LogLib_SettingsRepo.runtimeType}');
 
   print('========= API LIB ==========');
   // Resolve repositories from api_lib
-  var getit_ApiLib_AccountsRepo = kiwi.resolve<log_lib.AccountsRepository>();
+  var kiwi_ApiLib_AccountsRepo = kiwi.resolve<log_lib.AccountsRepository>();
   print(
-      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_ApiLib_AccountsRepo.runtimeType}');
-  var getit_ApiLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
+      'Name: ${kiwi_ApiLib_AccountsRepo.name}, runtimeType: ${kiwi_ApiLib_AccountsRepo.runtimeType}');
+  var kiwi_ApiLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
   print(
-      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_ApiLib_SettingsRepo.runtimeType}');
+      'Name: ${kiwi_ApiLib_SettingsRepo.name}, runtimeType: ${kiwi_ApiLib_SettingsRepo.runtimeType}');
 
   // Run internal methods to see what they resolve
   log_lib.someMethodRunWithKiwiContainer();
