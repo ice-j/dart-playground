@@ -1,4 +1,4 @@
-name: typetest
+name: api_lib
 description: A sample command-line application.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
@@ -9,16 +9,12 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
+  # path: ^1.8.0
   get_it: ^7.7.0
   injectable: ^2.4.4
   kiwi: ^5.0.1
-  # path: ^1.8.0
   db_lib:
-    path: packages/db_lib
-  log_lib:
-    path: packages/log_lib
-  api_lib:
-    path: packages/api_lib
+    path: ../db_lib
 
 dev_dependencies:
   build_runner: ^2.4.12
@@ -26,4 +22,3 @@ dev_dependencies:
   lints: ^4.0.0
   test: ^1.24.0
   kiwi_generator: ^4.2.1
-  melos: ^6.1.0

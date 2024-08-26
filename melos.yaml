@@ -1,0 +1,9 @@
+name: generics_and_di_test
+
+packages:
+  - .
+  - packages/**
+
+scripts:
+  dartgen:
+    exec: dart run build_runner build -d
