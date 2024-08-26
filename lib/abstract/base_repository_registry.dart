@@ -35,7 +35,6 @@ abstract class BaseRepositoryRegistry {
     print('_register finished \n\n');
   }
 
-
   Future<void> registerWithKiwi() async {
     final repositoryPairs = await setupFactory();
     print('\n\nkiwi: _register invoked');
@@ -54,19 +53,17 @@ abstract class BaseRepositoryRegistry {
 
   Future<void> _registerWithGetIt<T extends BaseRepository>(
       T repository) async {
-        print('Repository: ${repository.runtimeType} setup');
-      var registeredInstance = GetIt.I.registerSingleton(repository);
-    var r = GetIt.I.get(type: repository.runtimeType);
+    print('Repository: ${repository.runtimeType} setup');
+
+    var r = GetIt.instance.get(type: repository.runtimeType);
     print('Instance of ${repository.runtimeType} was registered'
         ' and initialized. Type: ${(r).runtimeType} \n\t'
         ' Resolved from GetIt as: ${r.runtimeType}');
   }
 
-  Future<void> _registerWithKiwi<T extends BaseRepository>(
-      T repository) async {
-        
-      print('kiwi: Inferred type T is: ${T}');
-        print('kiwi: Repository: ${repository.runtimeType} setup');
+  Future<void> _registerWithKiwi<T extends BaseRepository>(T repository) async {
+    print('kiwi: Inferred type T is: ${T}');
+    print('kiwi: Repository: ${repository.runtimeType} setup');
     // KiwiContainer().registerInstance(repository);
     // print('kiwi: Repository: ${repository.runtimeType} was registered'
     //     ' and initialized. name: ${(r as BaseRepository).name} \n\t'
@@ -74,17 +71,15 @@ abstract class BaseRepositoryRegistry {
   }
 }
 
-
 /// Representing a KeyValue pair data structure holding
 /// [repository] and [adapter] objects.
 /// Used in [CustomRepositoryRegistry.setupFactory].
-class CustomDatabaseRegistryPair<
-    TRepo extends BaseRepository> {
+class CustomDatabaseRegistryPair<TRepo extends BaseRepository> {
   /// Creates an instance of [CustomDatabaseRegistryPair].
   CustomDatabaseRegistryPair(this.repository, this.adapter) {
     print('CustomDatabaseRegistryPair ctor \n'
-          'Type inferred: $TRepo \n'
-          'RuntimeType: ${repository.runtimeType}');
+        'Type inferred: $TRepo \n'
+        'RuntimeType: ${repository.runtimeType}');
   }
 
   /// Get the [TRepo] repository of this [CustomDatabaseRegistryPair] instance.
@@ -93,4 +88,3 @@ class CustomDatabaseRegistryPair<
   /// Get the [TAdapter] adapter of this [CustomDatabaseRegistryPair] instance.
   final String adapter;
 }
-

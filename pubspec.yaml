@@ -9,6 +9,8 @@ environment:
 # Add regular dependencies here.
 dependencies:
   get_it: ^7.7.0
+  injectable: ^2.4.4
+  injectable_generator: ^2.6.2
   kiwi: ^5.0.1
   # path: ^1.8.0
 
