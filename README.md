@@ -1,7 +1,9 @@
-# Dart playground for experimenting with generics, type safety & DI options
+# Overview
+Dart playground for experimenting with generics, type safety & DI options containing:
 - A test dart project to experiment with generics and DI.
 - Multipackage solution to test DI scenaraios assuming there can be classes with the same names from a different package registered with the DI instance at the same time
-- Contains implementation with GetIt + Injectable or Kiwi
+- DI setup using GetIt + Injectable
+- DI setup using Kiwi
 
 # Workspace structure
 - typetest
@@ -21,7 +23,8 @@
   3. `dart pub get`
 - Run the kiwi example:
   `dart run bin/kiwi.dart`
-- Run the mi
+- Run the GetIt + Injector example:
+  `dart run bin/get_it.dart`
 
 # Dependencies
 - get_it
@@ -33,4 +36,4 @@
 - kiwi_generator
 
 # Dependency map
-[!(./depdendency_map.puml)]
+![Dependency Diagram](https://www.plantuml.com/plantuml/png/fL7HQiCm37pFLmZjUINTahGXU3yonf1jDJKpsCGkh1lzzv69UH3MFAnlbhZJtVci6oUAHuXatcZa19yLG78Vh71Rum0JPHVKmNa_L00KtQjt6fxJaI8hrE4T1p31XqdXNSlTmvxnPKPQlGAqXzRi7WNemxY2hAdPxKcG-HmvSyfNeCQsL8jwyNd_z6iadpqhd9EmNV7o3renTWDFf9V4jPyGeaIzIboqaavQwaRZJodpL7h7x-81F6ds2ijwPa6vrUccRtfP_YZBO7LvInOPBd-ARXPgcuMCxTjjPsLPmigvI_K5)
