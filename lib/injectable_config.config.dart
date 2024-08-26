@@ -11,8 +11,8 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import 'abstract/base_repository.dart' as _i765;
 import 'accounts_repository.dart' as _i254;
+import 'modules/repositories_module.dart' as _i885;
 import 'settings_repository.dart' as _i315;
 import 'test_registry.dart' as _i8;
 
@@ -27,15 +27,22 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    final registerModule = _$RegisterModule();
     gh.singleton<_i8.TestRegistry>(() => _i8.TestRegistry());
-    gh.factory<_i765.BaseRepository>(
-      () => _i254.AccountsRepository(name: gh<String>()),
-      instanceName: 'AccountsRepository',
+    gh.factory<String>(
+      () => registerModule.accountsRepositoryName,
+      instanceName: 'accountsRepositoryName',
     );
-    gh.factory<_i765.BaseRepository>(
-      () => _i315.SettingsRepository(name: gh<String>()),
-      instanceName: 'SettingsRepository',
+    gh.factory<String>(
+      () => registerModule.settingsRepositoryName,
+      instanceName: 'settingsRepositoryName',
     );
+    gh.factory<_i315.SettingsRepository>(() => _i315.SettingsRepository(
+        name: gh<String>(instanceName: 'settingsRepositoryName')));
+    gh.factory<_i254.AccountsRepository>(() => _i254.AccountsRepository(
+        name: gh<String>(instanceName: 'accountsRepositoryName')));
     return this;
   }
 }
+
+class _$RegisterModule extends _i885.RegisterModule {}

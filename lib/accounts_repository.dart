@@ -1,8 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:typetest/abstract/base_repository.dart';
 
-@named
-@Injectable(as: BaseRepository)
+@injectable
 class AccountsRepository extends BaseRepository {
-  AccountsRepository({required super.name});
+  AccountsRepository({@Named('accountsRepositoryName') required super.name});
 }

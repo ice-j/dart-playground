@@ -21,7 +21,7 @@ abstract class BaseRepositoryRegistry {
 
   Future<void> registerWithGetIt() async {
     final repositoryPairs = await setupFactory();
-    print('_register invoked');
+    print('Registry.register() invoked');
     if (repositoryPairs.isEmpty) {
       print('No repositories registered in $runtimeType');
       return;
@@ -32,7 +32,7 @@ abstract class BaseRepositoryRegistry {
     for (final repoPair in _repositoriesWithAdapters) {
       await _registerWithGetIt(repoPair.repository);
     }
-    print('_register finished \n\n');
+    print('Registry.register() finished \n\n');
   }
 
   Future<void> registerWithKiwi() async {
@@ -55,10 +55,10 @@ abstract class BaseRepositoryRegistry {
       T repository) async {
     print('Repository: ${repository.runtimeType} setup');
 
-    var r = GetIt.instance.get(type: repository.runtimeType);
-    print('Instance of ${repository.runtimeType} was registered'
-        ' and initialized. Type: ${(r).runtimeType} \n\t'
-        ' Resolved from GetIt as: ${r.runtimeType}');
+    // // var r = GetIt.instance.get(type: repository.runtimeType);
+    // print('Instance of ${repository.runtimeType} was registered'
+    //     ' and initialized. Type: ${(r).runtimeType} \n\t'
+    //     ' Resolved from GetIt as: ${r.runtimeType}');
   }
 
   Future<void> _registerWithKiwi<T extends BaseRepository>(T repository) async {
@@ -77,9 +77,9 @@ abstract class BaseRepositoryRegistry {
 class CustomDatabaseRegistryPair<TRepo extends BaseRepository> {
   /// Creates an instance of [CustomDatabaseRegistryPair].
   CustomDatabaseRegistryPair(this.repository, this.adapter) {
-    print('CustomDatabaseRegistryPair ctor \n'
-        'Type inferred: $TRepo \n'
-        'RuntimeType: ${repository.runtimeType}');
+    // print('CustomDatabaseRegistryPair ctor \n'
+    //     'Type inferred: $TRepo \n'
+    //     'RuntimeType: ${repository.runtimeType}');
   }
 
   /// Get the [TRepo] repository of this [CustomDatabaseRegistryPair] instance.
