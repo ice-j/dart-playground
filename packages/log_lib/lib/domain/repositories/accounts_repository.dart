@@ -2,5 +2,5 @@ part of '../../log_lib.dart';
 
 @injectable
 class AccountsRepository extends BaseRepository {
-  AccountsRepository({required super.name});
+  AccountsRepository({@Named('log_lib.accountsRepositoryName')required super.name});
 }

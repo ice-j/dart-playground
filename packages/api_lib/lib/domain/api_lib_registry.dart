@@ -1,6 +1,6 @@
 part of '../api_lib.dart';
 
-@singleton
+@Singleton()
 class ApiLibRegistry extends BaseRepositoryRegistry {
   @override
   FutureOr<List<CustomDatabaseRegistryPair<BaseRepository>>> setupFactory() {

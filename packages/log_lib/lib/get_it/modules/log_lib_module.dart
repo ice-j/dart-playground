@@ -2,8 +2,8 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class ApiLibModule {
-  @Named('accountsRepositoryName')
+  @Named('log_lib.accountsRepositoryName')
   String get accountsRepositoryName => 'log_lib.accounts';
-  @Named('settingsRepositoryName')
+  @Named('log_lib.settingsRepositoryName')
   String get settingsRepositoryName => 'log_lib.settings';
 }

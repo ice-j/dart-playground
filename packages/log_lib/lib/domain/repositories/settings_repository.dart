@@ -2,5 +2,5 @@ part of '../../log_lib.dart';
 
 @injectable
 class SettingsRepository extends BaseRepository {
-  SettingsRepository({required super.name});
+  SettingsRepository({@Named('log_lib.settingsRepositoryName') required super.name});
 }

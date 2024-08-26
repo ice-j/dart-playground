@@ -17,9 +17,9 @@ abstract class BaseRepositoryRegistry {
 
   Future<void> registerWithGetIt() async {
     final repositoryPairs = await setupFactory();
-    print('Registry.register() invoked');
+    print('\n\nget_it: $runtimeType.register() invoked');
     if (repositoryPairs.isEmpty) {
-      print('No repositories registered in $runtimeType');
+      print('get_it: No repositories registered in $runtimeType');
       return;
     }
 
@@ -28,12 +28,12 @@ abstract class BaseRepositoryRegistry {
     for (final repoPair in _repositoriesWithAdapters) {
       await _registerWithGetIt(repoPair.repository);
     }
-    print('Registry.register() finished \n\n');
+    print('get_it: $runtimeType.register() finished \n\n');
   }
 
   Future<void> registerWithKiwi() async {
     final repositoryPairs = await setupFactory();
-    print('\n\nkiwi: _register invoked');
+    print('\n\nkiwi: $runtimeType.register() invoked');
     if (repositoryPairs.isEmpty) {
       print('kiwi: No repositories registered in $runtimeType');
       return;
@@ -44,12 +44,12 @@ abstract class BaseRepositoryRegistry {
     for (final repoPair in _repositoriesWithAdapters) {
       await _registerWithKiwi(repoPair.repository);
     }
-    print('_register finished \n\n');
+    print('kiwi: $runtimeType.register() finished \n\n');
   }
 
   Future<void> _registerWithGetIt<T extends BaseRepository>(
       T repository) async {
-    print('Repository: ${repository.runtimeType} setup');
+    print('get_it: Repository: ${repository.runtimeType} setup');
 
     // // var r = GetIt.instance.get(type: repository.runtimeType);
     // print('Instance of ${repository.runtimeType} was registered'
@@ -75,11 +75,7 @@ abstract class BaseRepositoryRegistry {
 /// Used in [CustomRepositoryRegistry.setupFactory].
 class CustomDatabaseRegistryPair<TRepo extends BaseRepository> {
   /// Creates an instance of [CustomDatabaseRegistryPair].
-  CustomDatabaseRegistryPair(this.repository, this.adapter) {
-    // print('CustomDatabaseRegistryPair ctor \n'
-    //       'Type inferred: $TRepo \n'
-    //       'RuntimeType: ${repository.runtimeType}');
-  }
+  const CustomDatabaseRegistryPair(this.repository, this.adapter);
 
   /// Get the [TRepo] repository of this [CustomDatabaseRegistryPair] instance.
   final TRepo repository;

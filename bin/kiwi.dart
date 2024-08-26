@@ -42,6 +42,8 @@ Future<void> main(List<String> arguments) async {
   var kiwi_LogLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
   print(
       'Name: ${kiwi_LogLib_SettingsRepo.name}, runtimeType: ${kiwi_LogLib_SettingsRepo.runtimeType}');
+  // Run internal method to see what it resolves
+  log_lib.someMethodRunWithKiwiContainer();
 
   print('========= API LIB ==========');
   // Resolve repositories from api_lib
@@ -52,7 +54,6 @@ Future<void> main(List<String> arguments) async {
   print(
       'Name: ${kiwi_ApiLib_SettingsRepo.name}, runtimeType: ${kiwi_ApiLib_SettingsRepo.runtimeType}');
 
-  // Run internal methods to see what they resolve
-  log_lib.someMethodRunWithKiwiContainer();
+  // Run internal method to see what it resolves
   api_lib.someMethodRunWithKiwiContainer();
 }

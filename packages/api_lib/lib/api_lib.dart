@@ -21,8 +21,9 @@ void someMethodRunWithKiwiContainer() {
 }
 
 void someMethodRunWithGetItAndInjectableContainer() {
-  print('api_lib:get_it: someMethodRunWithKiwiContainer invoked');
+  print('api_lib:get_it: someMethodRunWithGetItAndInjectableContainer invoked');
   var getIt = GetIt.instance;
+  print('api_lib:get_it: Scope name: ${getIt.currentScopeName}');
   var accountRepo = getIt<AccountsRepository>();
   var settingsRepo = getIt<SettingsRepository>();
 
