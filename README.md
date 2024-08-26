@@ -1,0 +1,1 @@
+A test dart project to experiment with generics and DI.
