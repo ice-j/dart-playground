@@ -6,6 +6,4 @@ packages:
 
 scripts:
   dartgen:
-    exec: dartgen
-  main:
-    exec: dart run .
+    exec: dart run build_runner build -d
