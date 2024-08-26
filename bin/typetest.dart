@@ -9,13 +9,12 @@ import 'package:typetest/test_registry.dart';
 import 'package:typetest/typetest.dart' as typetest;
 
 Future<void> main(List<String> arguments) async {
-  if(arguments.isNotEmpty && arguments[0].toLowerCase() == "getit") {
+  if (arguments.isNotEmpty && arguments[0].toLowerCase() == "getit") {
     await main_get_it();
   } else {
     await main_kiwi();
   }
 }
-
 
 Future<void> main_kiwi() async {
   // Configure injectors
@@ -36,26 +35,36 @@ Future<void> main_kiwi() async {
   await testRegistry.registerWithKiwi();
   await apiRegistry.registerWithKiwi();
   await logRegistry.registerWithKiwi();
-  
+
   // Resolve repositories from running package
   var getit_main_AccountsRepo = kiwi.resolve<AccountsRepository>();
-  print('Name: ${getit_main_AccountsRepo.name}, runtimeType: ${getit_main_AccountsRepo.runtimeType}');
+  print(
+      'Name: ${getit_main_AccountsRepo.name}, runtimeType: ${getit_main_AccountsRepo.runtimeType}');
   var getit_main_SettingsRepo = kiwi.resolve<SettingsRepository>();
-  print('Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_main_SettingsRepo.runtimeType}');
+  print(
+      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_main_SettingsRepo.runtimeType}');
   print('========= LOG LIB ==========');
-  
+
   // Resolve repositories from log_lib
   var getit_LogLib_AccountsRepo = kiwi.resolve<log_lib.AccountsRepository>();
-  print('Name: ${getit_main_AccountsRepo.name}, runtimeType: ${getit_LogLib_AccountsRepo.runtimeType}');
+  print(
+      'Name: ${getit_main_AccountsRepo.name}, runtimeType: ${getit_LogLib_AccountsRepo.runtimeType}');
   var getit_LogLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
-  print('Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_LogLib_SettingsRepo.runtimeType}');
+  print(
+      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_LogLib_SettingsRepo.runtimeType}');
 
   print('========= API LIB ==========');
   // Resolve repositories from api_lib
   var getit_ApiLib_AccountsRepo = kiwi.resolve<log_lib.AccountsRepository>();
-  print('Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_ApiLib_AccountsRepo.runtimeType}');
+  print(
+      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_ApiLib_AccountsRepo.runtimeType}');
   var getit_ApiLib_SettingsRepo = kiwi.resolve<log_lib.SettingsRepository>();
-  print('Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_ApiLib_SettingsRepo.runtimeType}');
+  print(
+      'Name: ${getit_main_SettingsRepo.name}, runtimeType: ${getit_ApiLib_SettingsRepo.runtimeType}');
+
+  // Run internal methods to see what they resolve
+  log_lib.someMethodRunWithKiwiContainer();
+  api_lib.someMethodRunWithKiwiContainer();
 }
 
 Future<void> main_get_it() async {
@@ -66,7 +75,6 @@ Future<void> main_get_it() async {
   getIt.registerSingleton(TestRegistry());
   getIt.registerSingleton(api_lib.ApiLibRegistry());
   getIt.registerSingleton(log_lib.LogLibRegistry());
-
 
   // Resolve registry
   var registryGetIt = getIt.get<TestRegistry>();
@@ -89,4 +97,3 @@ Future<void> main_get_it() async {
   log_lib.someMethodRunWithKiwiContainer();
   api_lib.someMethodRunWithKiwiContainer();
 }
-
