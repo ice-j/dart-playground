@@ -22,6 +22,21 @@ Future<void> main(List<String> arguments) async {
   var apiRegistry = kiwi<api_lib.ApiLibRegistry>();
   var logRegistry = kiwi<log_lib.LogLibRegistry>();
 
+  // Log all registrations with kiwi
+  print("\n\n\n========== PROVIDERS LOG ==========");
+  for(final key in kiwi.providers.keys){
+    if(kiwi.providers[key]?.entries?.isEmpty == true) {
+      print('Provider "$key" is empty');
+      continue;
+    }
+
+    print('Provider "$key" has the following registrations:');
+    for(final val in kiwi.providers[key]!.entries) {
+      print('Name: ${val.key}, value: ${val.value.object}');
+    }
+  }
+  print("========= /PROVIDERS LOG ==========\n\n\n");
+
   await testRegistry.registerWithKiwi();
   await apiRegistry.registerWithKiwi();
   await logRegistry.registerWithKiwi();
