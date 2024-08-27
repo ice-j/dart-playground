@@ -6,7 +6,7 @@ import 'package:typetest/get_it/injectable.dart';
 import 'package:typetest/domain/repositories/settings_repository.dart';
 import 'package:typetest/domain/test_registry.dart';
 
-Future<void> main(List<String> arguments) async {
+Future<void> main() async {
   // Initialize GetIt
   final getIt = GetIt.instance;
 

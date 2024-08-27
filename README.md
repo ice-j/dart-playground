@@ -22,9 +22,9 @@ Dart playground for experimenting with generics, type safety & DI options contai
   2. `melos run dartgen`
   3. `dart pub get`
 - Run the kiwi example:
-  `dart run bin/kiwi.dart`
-- Run the GetIt + Injector example:
-  `dart run bin/get_it.dart`
+  `dart run main.dart kiwi`
+- Run the GetIt + Injectable:
+  `dart run main.dart injectable`
 
 # Dependencies
 - get_it

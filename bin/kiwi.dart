@@ -6,7 +6,7 @@ import 'package:typetest/domain/repositories/settings_repository.dart';
 import 'package:typetest/kiwi/test_kiwi_injector.dart';
 import 'package:typetest/domain/test_registry.dart';
 
-Future<void> main(List<String> arguments) async {
+Future<void> main() async {
   // Initialize kiwi
   final kiwi = KiwiContainer();
 
